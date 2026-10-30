@@ -84,24 +84,32 @@ view model =
         [ main_ []
             [ h1 [] [ text "Hello, I am Alexander!" ]
             , h2 [] [ text "Software engineer with more than 5 years of experience" ]
-            , p []
-                [ text "I am a senior software engineer with experience building reliable web services and applications that cater to users' needs."
-                ]
+            , p [] [ text "REPLACE ME" ]
+            , nav
             ]
         , footer []
             [ h3 [] [ text "contact me" ]
             , div []
                 [ ul []
                     [ li [] [ a [] [ text "LinkedIn" ] ]
-                    , li [] [ a [] [ text "GitHub" ] ]
-                    , li [] [ a [] [ text "italki" ] ]
-                    , li [] [ a [] [ text "YouTube" ] ]
+                    , li [] [ a [ title "See my repos on GitHub" ] [ text "GitHub" ] ]
+                    , li [] [ a [ title "I teach English and Spanish at italki" ] [ text "italki" ] ]
+                    , li [] [ a [ title "Sometimes I make videos on programming and languages" ] [ text "YouTube" ] ]
                     ]
                 , contactForm
                 ]
             ]
         ]
     }
+
+
+nav : Html Msg
+nav =
+    div [ id "navigation" ]
+        [ button [ class "pseudo" ] [ a [ href "/about" ] [ text "about" ] ]
+        , button [ class "pseudo" ] [ a [ href "/blog" ] [ text "blog" ] ]
+        , button [ class "pseudo" ] [ a [ href "/work" ] [ text "work" ] ]
+        ]
 
 
 contactForm : Html Msg

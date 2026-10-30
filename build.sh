@@ -25,6 +25,11 @@ function cleanup() {
 trap cleanup EXIT
 
 while read -r LINE; do
+  if [[ "$LINE" =~ 'REPLACE ME' ]]; then
+    echo "\$elm\$html\$Html\$text(\"$(cat data/landing.txt | tr -d '\n')\")"
+    continue
+  fi
+
   echo "$LINE"
 
   if [ "$LINE" = '<head>' ]; then
