@@ -1,0 +1,66 @@
+:root {
+  --bg: #111;
+  --fg: #f4f4f4;
+  --accent: #F42C04;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--fg);
+  background-color: var(--bg);
+}
+
+main {
+  width: 80%;
+  margin: auto !important;
+  margin-top: 2rem !important;
+  min-height: 80vh;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+footer {
+  position: relative;
+  padding: 1rem 4rem;
+  background-color: var(--accent);
+  
+  a {
+    color: var(--bg);
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between
+  }
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 40%;
+
+  input {
+    color: var(--bg);
+  }
+
+  input[type="submit"] {
+    text-align: right;
+    color: var(--fg);
+  }
+}

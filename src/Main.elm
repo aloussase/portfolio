@@ -81,19 +81,33 @@ view : Model -> Browser.Document Msg
 view model =
     { title = "Alexander Goussas - Software engineer"
     , body =
-        [ text "The current URL is: "
-        , b [] [ text (Url.toString model.url) ]
-        , ul []
-            [ viewLink "/home"
-            , viewLink "/profile"
-            , viewLink "/reviews/the-century-of-the-self"
-            , viewLink "/reviews/public-opinion"
-            , viewLink "/reviews/shah-of-shahs"
+        [ main_ []
+            [ h1 [] [ text "Hello, I am Alexander!" ]
+            , h2 [] [ text "Software engineer with more than 5 years of experience" ]
+            , p []
+                [ text "I am a senior software engineer with experience building reliable web services and applications that cater to users' needs."
+                ]
+            ]
+        , footer []
+            [ h3 [] [ text "contact me" ]
+            , div []
+                [ ul []
+                    [ li [] [ a [] [ text "LinkedIn" ] ]
+                    , li [] [ a [] [ text "GitHub" ] ]
+                    , li [] [ a [] [ text "italki" ] ]
+                    , li [] [ a [] [ text "YouTube" ] ]
+                    ]
+                , contactForm
+                ]
             ]
         ]
     }
 
 
-viewLink : String -> Html msg
-viewLink path =
-    li [] [ a [ href path ] [ text path ] ]
+contactForm : Html Msg
+contactForm =
+    Html.form [ id "contact-form" ]
+        [ h3 [] [ text "Let's work together!" ]
+        , input [ type_ "text", placeholder "Your email..." ] []
+        , input [ type_ "submit", value "Send", class "pseudo" ] []
+        ]

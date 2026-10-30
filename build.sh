@@ -29,6 +29,7 @@ while read -r LINE; do
 
   if [ "$LINE" = '<head>' ]; then
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">'
+    echo '<link rel="stylesheet" href="./css/styles.css">'
   fi
 done < "$filename" > "$fileout"
 
