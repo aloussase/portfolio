@@ -1,5 +1,5 @@
 I got my Computer Science degree from Escuela Superior Politecnica del Litoral
-in Guayaquil, Ecuador. I was often top of the class and was a teaching assistant
+in Guayaquil, Ecuador. I was always top of the class and was a teaching assistant
 for classes like Systems Programming, Object Oriented Programming and
 Distributed Systems. My love for open source put me on the path to become the
 president of Kokoa, the university's open source club. Along with the club we
