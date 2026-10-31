@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+p {
+  margin-bottom: 0.25rem;
+}
+
 body {
   font-family: "Roboto Serif", serif;
   font-optical-sizing: auto;
@@ -78,6 +82,7 @@ footer {
   display: flex;
   gap: 1rem;
   margin-top: 4rem;
+  margin-bottom: 2rem;
 
   button {
     background-color: transparent;

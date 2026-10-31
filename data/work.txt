@@ -1,0 +1,7 @@
+I'm a senior software engineer at Thoughtworks with experience building reliable
+web services and applications using Java and SpringBoot in
+microservices-oriented architectures deployed on Kubernetes. In my work I've
+been responsible for the product from conception to development and
+observability. I believe that productive code is no use if we cannot inspect how
+the system is behaving in the live environment. 
+

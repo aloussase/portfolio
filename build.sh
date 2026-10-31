@@ -8,6 +8,11 @@ fi
 echo "Compiling site..."
 elm make src/Main.elm >/dev/null 2>&1
 
+if [ $? -ne 0 ]; then
+  echo "Failed to compile site..."
+  exit 2
+fi
+
 filename="$1"
 fileout="$(mktemp)"
 
@@ -25,8 +30,18 @@ function cleanup() {
 trap cleanup EXIT
 
 while read -r LINE; do
-  if [[ "$LINE" =~ 'REPLACE ME' ]]; then
-    echo "\$elm\$html\$Html\$text(\"$(cat data/landing.txt | tr -d '\n')\")"
+  if [[ "$LINE" =~ 'REPLACE ME - WORK' ]]; then
+    echo "\$elm\$html\$Html\$text(\"$(cat data/work.txt | tr '\n' ' ')\")"
+    continue
+  fi
+
+  if [[ "$LINE" =~ 'REPLACE ME - STUDIES' ]]; then
+    echo "\$elm\$html\$Html\$text(\"$(cat data/studies.txt | tr '\n' ' ')\")"
+    continue
+  fi
+
+  if [[ "$LINE" =~ 'REPLACE ME - HOBBIES' ]]; then
+    echo "\$elm\$html\$Html\$text(\"$(cat data/hobbies.txt | tr '\n' ' ')\")"
     continue
   fi
 

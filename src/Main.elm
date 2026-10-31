@@ -84,17 +84,19 @@ view model =
         [ main_ []
             [ h1 [] [ text "Hello, I am Alexander!" ]
             , h2 [] [ text "Software engineer with more than 5 years of experience" ]
-            , p [] [ text "REPLACE ME" ]
+            , p [] [ text "REPLACE ME - WORK" ]
+            , p [] [ text "REPLACE ME - STUDIES" ]
+            , p [] [ text "REPLACE ME - HOBBIES" ]
             , nav
             ]
         , footer []
             [ h3 [] [ text "contact me" ]
             , div []
                 [ ul []
-                    [ li [] [ a [] [ text "LinkedIn" ] ]
-                    , li [] [ a [ title "See my repos on GitHub" ] [ text "GitHub" ] ]
-                    , li [] [ a [ title "I teach English and Spanish at italki" ] [ text "italki" ] ]
-                    , li [] [ a [ title "Sometimes I make videos on programming and languages" ] [ text "YouTube" ] ]
+                    [ li [] [ a [ href "https://linkedin.com/in/alexander-goussas" ] [ text "LinkedIn" ] ]
+                    , li [] [ a [ href "https://github.com/aloussase", title "See my repos on GitHub" ] [ text "GitHub" ] ]
+                    , li [] [ a [ href "", title "I teach English and Spanish at italki" ] [ text "italki" ] ]
+                    , li [] [ a [ href "https://youtube.com/@aloussase", title "Sometimes I make videos on programming and languages" ] [ text "YouTube" ] ]
                     ]
                 , contactForm
                 ]
@@ -109,6 +111,7 @@ nav =
         [ button [ class "pseudo" ] [ a [ href "/about" ] [ text "about" ] ]
         , button [ class "pseudo" ] [ a [ href "/blog" ] [ text "blog" ] ]
         , button [ class "pseudo" ] [ a [ href "/work" ] [ text "work" ] ]
+        , button [ class "pseudo" ] [ a [ href "/pics" ] [ text "photography" ] ]
         ]
 
 
