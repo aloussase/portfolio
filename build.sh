@@ -6,7 +6,7 @@ if ! command -v elm >/dev/null; then
 fi
 
 echo "Compiling site..."
-elm make src/Main.elm >/dev/null 2>&1
+elm make src/Main.elm >/dev/null
 
 if [ $? -ne 0 ]; then
   echo "Failed to compile site..."
