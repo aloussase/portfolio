@@ -45,6 +45,11 @@ while read -r LINE; do
     continue
   fi
 
+  if [[ "$LINE" =~ 'REPLACE ME - ABOUT' ]]; then
+    echo "\$elm\$html\$Html\$text(\"$(cat data/about.txt | tr '\n' ' ')\")"
+    continue
+  fi
+
   echo "$LINE"
 
   if [ "$LINE" = '<head>' ]; then

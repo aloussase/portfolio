@@ -31,6 +31,7 @@ main =
 type Route
     = Home
     | Work
+    | About
 
 
 type alias Model =
@@ -60,6 +61,7 @@ routeParser =
         [ P.map Home top
         , P.map Home (P.s "home")
         , P.map Work (P.s "work")
+        , P.map About (P.s "about")
         ]
 
 
@@ -133,6 +135,9 @@ viewMain model =
         Work ->
             work
 
+        About ->
+            about
+
 
 home : List (Html Msg)
 home =
@@ -174,6 +179,38 @@ work =
     , h2 [] [ text "Language teacher" ]
     , ul []
         [ li [] [ text "English teacher at italki " ] ]
+    ]
+
+
+about : List (Html Msg)
+about =
+    [ nav
+    , h1 [] [ text "About Me" ]
+    , p [] [ text "REPLACE ME - ABOUT" ]
+    , h2 [] [ text "My Interests" ]
+    , ul []
+        [ li [] [ text "Software architecture" ]
+        , li [] [ text "Functional programming" ]
+        , li [] [ text "Compilers & Interpreters" ]
+        , li [] [ text "Distributed Systems" ]
+        , li [] [ text "Motorcycles" ]
+        , li [] [ text "Bass" ]
+        , li [] [ text "Photography" ]
+        , li [] [ text "Languages, both natural and computer" ]
+        ]
+    , h2 [] [ text "I speak:" ]
+    , ul []
+        [ li [] [ text "Spanish" ]
+        , li [] [ text "English" ]
+        , li [] [ text "French" ]
+        , li [] [ text "Portuguese" ]
+        , li [] [ text "German (learning)" ]
+        , li [] [ text "Java" ]
+        , li [] [ text "Go" ]
+        , li [] [ text "Haskell" ]
+        , li [] [ text "C" ]
+        , li [] [ text "C++" ]
+        ]
     ]
 
 
