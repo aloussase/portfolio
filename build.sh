@@ -53,8 +53,8 @@ while read -r LINE; do
   echo "$LINE"
 
   if [ "$LINE" = '<head>' ]; then
-    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">'
-    echo '<link rel="stylesheet" href="./css/styles.css">'
+    echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/picnic">'
+    echo '<link rel="stylesheet" type="text/css" href="./css/styles.css">'
   fi
 done < "$filename" > "$fileout"
 

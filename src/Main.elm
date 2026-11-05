@@ -43,7 +43,7 @@ type alias Model =
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init _ url key =
-    ( Model key url Home, Cmd.none )
+    ( Model key url (parseUrl url), Cmd.none )
 
 
 
