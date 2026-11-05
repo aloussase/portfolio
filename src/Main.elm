@@ -64,7 +64,7 @@ type alias Model =
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init _ url key =
-    ( Model key url (parseUrl url), Cmd.none )
+    ( Model key url (parseUrl url), maybeLoadPost (parseUrl url) )
 
 
 
@@ -117,19 +117,22 @@ update msg model =
                 newRoute =
                     parseUrl url
             in
-            ( { model | url = url, route = newRoute }
-            , case newRoute of
-                BlogPost fileName ->
-                    case Dict.get fileName posts of
-                        Nothing ->
-                            Cmd.none
+            ( { model | url = url, route = newRoute }, maybeLoadPost newRoute )
 
-                        Just contents ->
-                            injectBlogPost contents
 
-                _ ->
+maybeLoadPost : Route -> Cmd msg
+maybeLoadPost route =
+    case route of
+        BlogPost fileName ->
+            case Dict.get fileName posts of
+                Nothing ->
                     Cmd.none
-            )
+
+                Just contents ->
+                    injectBlogPost contents
+
+        _ ->
+            Cmd.none
 
 
 
