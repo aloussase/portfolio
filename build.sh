@@ -50,11 +50,18 @@ while read -r LINE; do
     continue
   fi
 
+  if [[ "$LINE" =~ 'REPLACE ME - ' ]]; then
+    name="$(echo "$LINE" | perl -n -e "/'REPLACE ME - (.*)'/ && print \$1")"
+    echo "_Utils_Tuple2('$name', '$(cat posts/$name.html | tr -d '\n')')"
+    continue
+  fi
+
   echo "$LINE"
 
   if [ "$LINE" = '<head>' ]; then
     echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/picnic">'
     echo '<link rel="stylesheet" type="text/css" href="./css/styles.css">'
+    echo '<script src="./js/inject-posts.js"></script>'
   fi
 done < "$filename" > "$fileout"
 

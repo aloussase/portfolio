@@ -48,6 +48,7 @@ a {
 }
 
 footer {
+  margin-top: 1rem;
   position: relative;
   padding: 1rem 4rem;
   background-color: var(--accent);
@@ -93,4 +94,13 @@ footer {
       font-size: 1.6rem;
     }
   }
+}
+
+.blog-post {
+  display: flex;
+  gap: 1rem;
+}
+
+pre {
+  color: var(--bg);
 }

@@ -1,0 +1,42 @@
+<h1>PWC 398 Solutions</h1>
+
+<small>Published 5. November 2026</small><br>
+
+These are my solutions for the <a href="https://theweeklychallenge.org/blog/perl-weekly-challenge-398/">Perl Weekly Challenge #398</a>.
+
+<h2>Task 1: Divisible Average</h2>
+
+<pre>
+import           Control.Exception (assert, evaluate)
+<br><br>
+mean :: [Int] -> Int<br>
+mean [] = 0<br>
+mean xs = sum xs `div` length xs
+<br><br>
+solve :: [Int] -> Int<br>
+solve =  mean . filter (\\x -> even x && x `mod` 3 == 0)<br>
+</pre>
+
+<h2>Task 2: String Difference</h2>
+
+<pre>
+import           Control.Exception (assert, evaluate)<br>
+import           Data.Char         (ord)<br>
+import           Data.Function     (on)<br>
+import           Data.List         (groupBy, sortOn)<br>
+import           Data.Ord          (comparing)<br>
+<br>
+diff :: String -> [Int]<br>
+diff xs =<br>
+  let xs\' = map ord xs<br>
+  in map (uncurry $ flip (-)) $ zip xs\' (tail xs\')<br>
+<br>
+solve :: [String] -> String<br>
+solve xs<br>
+  = head<br>
+  . map (fst . head)<br>
+  . filter ((==) 1 . length)<br>
+  . groupBy (\\(_, ys) (_, zs) -> ys == zs)<br>
+  . sortOn snd<br>
+  $ zip xs (map diff xs)<br>
+</pre>

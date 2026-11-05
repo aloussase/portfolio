@@ -1,7 +1,8 @@
-module Main exposing (main)
+port module Main exposing (main)
 
 import Browser
 import Browser.Navigation as Nav
+import Dict exposing (Dict)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Url
@@ -28,10 +29,30 @@ main =
 -- MODEL
 
 
+type alias FileName =
+    String
+
+
+type alias BlogContents =
+    String
+
+
+type alias BlogPosts =
+    Dict FileName BlogContents
+
+
+posts : BlogPosts
+posts =
+    Dict.fromList
+        [ ( "pwc-398-hs", "REPLACE ME - pwc-398-hs" ) ]
+
+
 type Route
     = Home
     | Work
     | About
+    | Blog
+    | BlogPost FileName
 
 
 type alias Model =
@@ -62,6 +83,8 @@ routeParser =
         , P.map Home (P.s "home")
         , P.map Work (P.s "work")
         , P.map About (P.s "about")
+        , P.map Blog (P.s "blog")
+        , P.map BlogPost (P.s "blog" </> P.string)
         ]
 
 
@@ -73,6 +96,9 @@ parseUrl url =
 
         Just route ->
             route
+
+
+port injectBlogPost : String -> Cmd msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -87,8 +113,22 @@ update msg model =
                     ( model, Nav.load href )
 
         UrlChanged url ->
-            ( { model | url = url, route = parseUrl url }
-            , Cmd.none
+            let
+                newRoute =
+                    parseUrl url
+            in
+            ( { model | url = url, route = newRoute }
+            , case newRoute of
+                BlogPost fileName ->
+                    case Dict.get fileName posts of
+                        Nothing ->
+                            Cmd.none
+
+                        Just contents ->
+                            injectBlogPost contents
+
+                _ ->
+                    Cmd.none
             )
 
 
@@ -137,6 +177,12 @@ viewMain model =
 
         About ->
             about
+
+        Blog ->
+            blog
+
+        BlogPost _ ->
+            viewBlogPost
 
 
 home : List (Html Msg)
@@ -212,6 +258,27 @@ about =
         , li [] [ text "C++" ]
         ]
     ]
+
+
+blog : List (Html Msg)
+blog =
+    [ nav
+    , h1 [] [ text "Posts" ]
+    , ul []
+        [ blogPost "Nov 5 2026" "PWC 398 - Haskell" "/blog/pwc-398-hs"
+        ]
+    ]
+
+
+blogPost : String -> String -> String -> Html Msg
+blogPost date title link =
+    li [ class "blog-post" ]
+        [ text date, a [ href link ] [ text title ] ]
+
+
+viewBlogPost : List (Html Msg)
+viewBlogPost =
+    [ nav, div [ id "blog-post" ] [] ]
 
 
 nav : Html Msg

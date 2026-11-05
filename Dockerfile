@@ -12,6 +12,7 @@ RUN apt update && apt install curl -y \
 COPY elm.json .
 COPY build.sh .
 COPY ./data/ data/
+COPY ./posts/ posts/
 COPY ./src/ src/
 
 # Compile the app
