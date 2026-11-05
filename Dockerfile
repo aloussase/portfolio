@@ -25,3 +25,7 @@ COPY --from=build /app/index.html .
 COPY ./css css/
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
+
+LABEL org.opencontainers.image.source=https://github.com/aloussase/portfolio
+LABEL org.opencontainers.image.description="My personal portfolio website"
+LABEL org.opencontainers.image.licenses=MIT
