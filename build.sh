@@ -61,7 +61,7 @@ while read -r LINE; do
   if [ "$LINE" = '<head>' ]; then
     echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/picnic">'
     echo '<link rel="stylesheet" type="text/css" href="./css/styles.css">'
-    echo '<script src="./js/inject-posts.js"></script>'
+    echo '<script type="application/javascript" src="./js/inject-posts.js"></script>'
   fi
 done < "$filename" > "$fileout"
 
