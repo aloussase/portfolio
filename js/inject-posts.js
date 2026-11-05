@@ -1,4 +1,4 @@
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   app.ports.injectBlogPost.subscribe(function(contents) {
     setTimeout(() => {
       const el = document.getElementById("blog-post");
