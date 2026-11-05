@@ -17,6 +17,12 @@ solve :: [Int] -> Int<br>
 solve =  mean . filter (\\x -> even x && x `mod` 3 == 0)<br>
 </pre>
 
+We define the integer mean of N integers as the sum of the numbers divided by
+ the amount of numbers. In Haskell, the <code>div</code> operator performs
+ integer division, contrary to the standard <code>(\/\/)</code> operator. After
+ that, we can just filter the input list of numbers for those that are even and
+ divisible by 3 and apply the mean to them.
+
 <h2>Task 2: String Difference</h2>
 
 <pre>
@@ -40,3 +46,27 @@ solve xs<br>
   . sortOn snd<br>
   $ zip xs (map diff xs)<br>
 </pre>
+
+<p>
+Now this is some Haskell brainfuckery if you are not used to the syntax.
+</p>
+
+<p>
+The <code>diff</code> function computes the ASCII code for each character in the
+ input string and then returns the adjacent difference of the resulting array.
+ Haskell functions are curried, which means every function is a one-argument
+ function. If a function takes two arguments, that really means you have a
+ one-argument function that returns a function taking an argument. What
+ <code>uncurry</code> does it make it so that functions behave as in other
+ programming languages and accept a tuple instead of a list of arguments, which
+ perfectly fits our purpose here.
+</p>
+
+<p>
+The pipeline in <code>solve</code> needs to be read backwards. We first zip the
+ original list of strings with the differences, because we are going to need the
+ original string as the answer. Then, we sort the list of differences in order to
+ be able to group them and then filter those lists consisting of a single
+ element. That\'s the element we want, so we just pick it using an unorthodox
+ combination of <code>fst</code>s and <code>head</code>s.
+</p>

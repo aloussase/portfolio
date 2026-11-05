@@ -102,5 +102,25 @@ footer {
 }
 
 pre {
+  font-style: italic;
+  font-family: "Roboto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-variation-settings:
+  "wdth" 100,
+  "GRAD" 0;
+  margin: 1rem 0;
   color: var(--bg);
+}
+
+code {
+  font-style: italic;
+  font-family: "Roboto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-variation-settings:
+  "wdth" 100,
+  "GRAD" 0;
+  color: var(--accent);
+  background-color: transparent;
 }
