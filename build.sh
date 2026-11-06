@@ -65,6 +65,9 @@ while read -r LINE; do
     echo '<link rel="stylesheet" type="text/css" href="https://frustrated-functor.dev/css/styles.css">'
     echo '<script type="application/javascript" src="https://frustrated-functor.dev/js/inject-posts.js"></script>'
     echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
+    echo '<meta property="og:title" content="Alexander Goussas" />'
+    echo '<meta property="og:description" content="Blog about software development and functional programming" />'
+    echo '<meta property="og:image" content="https://frustrated-functor.dev/images/logo.png" />'
   fi
 done < "$filename" > "$fileout"
 

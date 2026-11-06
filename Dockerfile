@@ -25,6 +25,7 @@ WORKDIR /app
 COPY --from=build /app/index.html .
 COPY ./css css/
 COPY ./js js/
+COPY ./images images/
 
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
