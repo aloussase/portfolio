@@ -64,6 +64,7 @@ while read -r LINE; do
     # echo '<script type="application/javascript" src="http://localhost:3000/js/inject-posts.js"></script>'
     echo '<link rel="stylesheet" type="text/css" href="https://frustrated-functor.dev/css/styles.css">'
     echo '<script type="application/javascript" src="https://frustrated-functor.dev/js/inject-posts.js"></script>'
+    echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">'
   fi
 done < "$filename" > "$fileout"
 
