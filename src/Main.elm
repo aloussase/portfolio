@@ -291,6 +291,8 @@ nav =
         , button [ class "pseudo" ] [ a [ href "/about" ] [ text "/about" ] ]
         , button [ class "pseudo" ] [ a [ href "/blog" ] [ text "/blog" ] ]
         , button [ class "pseudo" ] [ a [ href "/work" ] [ text "/work" ] ]
+        , button [ class "pseudo" ] [ a [ href "https://github.com/aloussase", target "_blank" ] [ text "/github" ] ]
+        , button [ class "pseudo" ] [ a [ href "https://youtube.com/@aloussase", target "_blank" ] [ text "/videos" ] ]
         , button [ class "pseudo" ] [ a [ href "https://pin.it/59268OJYu", target "_blank" ] [ text "/photography" ] ]
         ]
 
